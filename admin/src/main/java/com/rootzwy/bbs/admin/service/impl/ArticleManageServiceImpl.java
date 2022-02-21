@@ -2,10 +2,10 @@ package com.rootzwy.bbs.admin.service.impl;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.rootzwy.bbs.admin.clientobject.ArticlePageCO;
-import com.rootzwy.bbs.admin.dataobject.ArticleHideDO;
 import com.rootzwy.bbs.admin.dataobject.ArticlePageDO;
 import com.rootzwy.bbs.admin.dataobject.ArticleRemoveDO;
-import com.rootzwy.bbs.admin.enums.HidedEnum;
+import com.rootzwy.bbs.admin.dataobject.ArticleStatusDO;
+import com.rootzwy.bbs.admin.enums.ArticleStatusEnum;
 import com.rootzwy.bbs.admin.mybatis.entity.ArticleEntity;
 import com.rootzwy.bbs.admin.mybatis.service.ArticleService;
 import com.rootzwy.bbs.admin.service.ArticleManageService;
@@ -34,11 +34,11 @@ public class ArticleManageServiceImpl implements ArticleManageService {
     }
 
     @Override
-    public Response hideArticles(ArticleHideDO articleHideDO) {
-        List<ArticleEntity> articleEntities = articleService.listByIds(articleHideDO.getIdList());
+    public Response changeArticlesStatus(ArticleStatusDO articleStatusDO) {
+        List<ArticleEntity> articleEntities = articleService.listByIds(articleStatusDO.getIdList());
         articleEntities.forEach(entity -> {
-            if (HidedEnum.EXPOSED.getCode().equals(entity.getHided())) {
-                entity.setHided(HidedEnum.HIDED.getCode());
+            if (ArticleStatusEnum.EXPOSED.getCode().equals(entity.getStatus())) {
+                entity.setStatus(articleStatusDO.getStatus());
             }
         });
         articleService.updateBatchById(articleEntities);

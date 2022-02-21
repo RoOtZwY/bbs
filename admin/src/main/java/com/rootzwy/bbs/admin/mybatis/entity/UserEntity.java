@@ -12,41 +12,38 @@ import java.time.LocalDateTime;
 
 /**
  * @author zwy
- * @date 2022/2/19
+ * @date 2022/2/21
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("article")
-public class ArticleEntity extends BaseEntity {
+@TableName("user")
+public class UserEntity extends BaseEntity {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    @TableField("user_id")
-    private Long userId;
+    @TableField("account")
+    private String account;
 
-    @TableField("title")
-    private String title;
+    @TableField("email")
+    private String email;
 
-    @TableField("content")
-    private String content;
+    @TableField("nickname")
+    private String nickname;
 
-    @TableField("view_num")
-    private Integer viewNum;
+    @TableField("gender")
+    private Integer gender;
 
-    @TableField("like_num")
-    private Integer likeNum;
-
-    @TableField("comment_num")
-    private Integer commentNum;
+    @TableField("status")
+    private Integer status;
 
     @TableField("create_time")
     private LocalDateTime createTime;
 
-    @TableField("update_time")
-    private LocalDateTime updateTime;
+    @TableField("avatar")
+    private String avatar;
 
-    @TableField("status")
-    private Integer status;
+    @TableField("article_num")
+    private Integer articleNum;
 
 }

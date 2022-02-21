@@ -4,13 +4,13 @@ import lombok.Data;
 
 /**
  * @author zwy
- * @date 2022/2/20
+ * @date 2022/2/21
  */
 @Data
-public class ArticlePageDO {
+public class UserBanDO {
 
-    private Long size;
+    private Long id;
 
-    private Long current;
+    private Integer banDay;
 
 }

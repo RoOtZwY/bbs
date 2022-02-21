@@ -26,6 +26,6 @@ public class AdminArgumentResolver implements HandlerMethodArgumentResolver {
     @Override
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer,
                                   NativeWebRequest webRequest, WebDataBinderFactory binderFactory) {
-        return AdminHolder.get();
+        return AdminHolder.getOrEmpty();
     }
 }

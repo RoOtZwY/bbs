@@ -9,8 +9,10 @@ import java.util.List;
  * @date 2022/2/20
  */
 @Data
-public class ArticleHideDO {
+public class ArticleStatusDO {
 
     private List<Long> idList;
+
+    private Integer status;
 
 }
