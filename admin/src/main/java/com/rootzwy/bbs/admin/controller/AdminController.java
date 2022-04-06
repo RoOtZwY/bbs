@@ -2,6 +2,7 @@ package com.rootzwy.bbs.admin.controller;
 
 import com.rootzwy.bbs.admin.annotation.IgnoreAdminToken;
 import com.rootzwy.bbs.admin.annotation.LoginAdmin;
+import com.rootzwy.bbs.admin.annotation.WriteLog;
 import com.rootzwy.bbs.admin.clientobject.AdminCO;
 import com.rootzwy.bbs.admin.context.AdminContext;
 import com.rootzwy.bbs.admin.dataobject.AdminLoginDO;
@@ -31,6 +32,7 @@ public class AdminController {
     }
 
     @PostMapping("/info")
+    @WriteLog
     public SingleResponse<AdminCO> getAdminInfo(@LoginAdmin AdminContext adminContext) {
         return adminHandleService.getAdminInfo(adminContext);
     }

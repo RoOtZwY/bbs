@@ -21,7 +21,7 @@ public class ApplicationExceptionHandler {
      */
     @ExceptionHandler(BusinessException.class)
     public Response handleBusinessException(BusinessException businessException) {
-        log.error("错误状态码: " + businessException.getErrorCode() + "错误详情: ", businessException);
+        log.error("\n错误状态码: " + businessException.getErrorCode() + "\n错误详情: ", businessException);
         return Response.buildFailure(businessException.getErrorCode(), businessException.getMessage());
     }
 

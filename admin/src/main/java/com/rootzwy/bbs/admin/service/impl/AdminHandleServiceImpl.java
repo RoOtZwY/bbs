@@ -59,6 +59,7 @@ public class AdminHandleServiceImpl implements AdminHandleService {
             Cookie cookie = new Cookie(AdminConstant.ADMIN_TOKEN, token);
             cookie.setMaxAge(privateService.getJWTCookieExpireSeconds());
             cookie.setHttpOnly(true);
+            cookie.setPath("/");
             response.addCookie(cookie);
         } catch (Exception e) {
             throw new BusinessException(BusinessErrorCode.DEFAULT, e);

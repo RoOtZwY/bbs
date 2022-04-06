@@ -14,7 +14,7 @@ public class AdminHolder {
     }
 
     public static AdminContext getOrEmpty() {
-        return LOCAL.get() == null ? LOCAL.get() : EMPTY_ADMIN;
+        return LOCAL.get() == null ? EMPTY_ADMIN : LOCAL.get();
     }
 
     public synchronized static AdminContext set(AdminContext adminContext) {

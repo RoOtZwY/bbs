@@ -14,6 +14,7 @@ import com.rootzwy.bbs.admin.service.PrivateService;
 import com.rootzwy.bbs.admin.util.JWTUtil;
 import com.rootzwy.bbs.common.exception.BusinessException;
 import com.rootzwy.bbs.common.messagecode.BusinessErrorCode;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -83,6 +84,14 @@ public class AdminInterceptor implements HandlerInterceptor {
         AdminHolder.set(adminContext);
 
         return true;
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request,
+                                HttpServletResponse response,
+                                Object handler,
+                                @Nullable Exception ex) {
+        AdminHolder.remove();
     }
 
 }

@@ -1,6 +1,7 @@
 package com.rootzwy.bbs.admin.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.rootzwy.bbs.admin.annotation.WriteLog;
 import com.rootzwy.bbs.admin.clientobject.ArticlePageCO;
 import com.rootzwy.bbs.admin.dataobject.ArticlePageDO;
 import com.rootzwy.bbs.admin.dataobject.ArticleRemoveDO;
@@ -33,6 +34,7 @@ public class ArticleController {
     }
 
     @PostMapping("/page")
+    @WriteLog
     public SingleResponse<Page<ArticlePageCO>> pageArticles(@RequestBody ArticlePageDO articlePageDO) {
         return articleManageService.pageArticles(articlePageDO);
     }
